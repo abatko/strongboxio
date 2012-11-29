@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StrongBox>
+  <SchemaVersion>2.1</SchemaVersion>
+  <Metadata>
+    <SchemaVersion>2.2</SchemaVersion>
+    <SBOXID>2fe22f4d-bd41-476a-8159-c6e0b6487f7d</SBOXID>
+    <SID>1aefeb7f-87fb-4c12-9587-78f2354c3a70</SID>
+    <CreateDate>129985312023925270</CreateDate>
+    <ModifiedDate>129985323759179228</ModifiedDate>
+    <Name>strongbox gem test</Name>
+    <Description>Strongbox Ruby gem test box</Description>
+    <PassphaseHint />
+    <LocalModifiedDate>129985312023925280</LocalModifiedDate>
+    <PayloadIdentity>sQgzfRSQEkCJo25tVi47Q</PayloadIdentity>
+    <PayloadSize>1217</PayloadSize>
+    <PayloadType />
+    <PayloadItemCount>4</PayloadItemCount>
+    <PayloadBaseRevisionTag>129985312024788056-129985312024788056</PayloadBaseRevisionTag>
+  </Metadata>
+  <Payload>
+    <SchemaVersion>2.1</SchemaVersion>
+    <Data>AxHLk57HTQaFzAHatF+lFg++t44Dfwr78cKGHzQB1+eWbKL9HVTZK9T/omI7P9az8gvJA//5CkYGz6HcQS7Sg/U5PTNqU4u2EZhkdaRUK6KooHux/u9HBF27RXy/8shiJbS6FN7EPew/8zzuZRe00WzOcoKELmHvbeTgZG0Te2Mtox+PfZMYEvRPjbA2eI70KwzlzSuoHbmyECKo36x9RTAHTeQTEXMfkcMU6D0ONsbMmNoJkC3TqIX5bcYLQ1FxQpwvB/AbtfyCLPk9Zxhmm0ihEsBfcPqxU9kaVkCBOfOyxFyvueEdFgEs1PxYJ571huJpyprCcQKcarr3yvMIzkn3rJKO6s9F0gR8PqdrBBO3PxKeZO6sJnpEq0WIuSYaY2wFGXr0UvK/Hid3hUHwVEjfbiVVJmXFmRHmEnJD7Q2EctX5Ju20ESYSXy3f3r/W3RTaR8ZwLVPiyroV2EjOZrhI0pMhXLZaOhszVA4alC7djphKRZkh1zg39pnMaPNYACW0rlAnFz5zk74Uez64xiWI352i89jfjj5R16blBlxq8FjJJVSlUxJJNJwnlbG744AXxd1ygI56koztmbwY1VbAOmr4FiX9JtVLq6a6gVKv3sy3eKlxKXd41jhOTNIKnu0Nh36TxXs64Q2BdozKnQvCN9BYelawWPQOp3viQ95LlruiQQEnzzmcGuZw33ny1QfxVFuz/Gd+i50eg++urf/woprI74OtXANWWhN6chSP29Gz8y76/zYZoYAerZxAVPuh+elW9Xw3fjCwHk33/tkOvVcKQb/LCcFZdaawh6gdYfRJTRetQYKIWdKn7QuYhZLKYXMcJ1BBrDnJx0QKCN8kwNggzRlfYtgzz07t1BQXL+5F9m18KQfXbGR4HpI3INwWMFA61mFKRMih0cORjbVwfISJIZfRp/oe1Ut8r4+cZbTwdmPEnUrMiOSQLk0gUk7DknnCfEPKLjOFz+DAwhqSfosNKUkV1AB+GDzI2JfR5P3SMLh77/CLN1Adx/tXH46A2K6D5JXPVGUR9mhMD9hCH6v34dRNkfBSD0EN2VHMAkVAWrDm4UiKf3uO6k51Q7IZ0vcp+QSZdcV98rhAVgpx79S3MPd8+riamxuZFHe/5Ao1p4JW1FajPxbZnh4LhQNdN8vTSuywOaefN7Mph4X3WEJ5cOYcJm5MdYQDx9t1DSdY1l+tuDHW+8LWpqicVN0JWNADPFCyQwoAQMzX1ax3zq8zXofI+MaJOxaxiEu/pJDPce07fmf/W6Xxcw8Uugm4bZE7pxcTRrrhXZ4WYBmHyxRfNtGZyw8K385S8wRW93FPUnwHRDUyDoRN+w9FwAxWPmywM2Z8RyfyN6frQ0j4roB9YD2Yt1YuY6/yoUDiDxsLdaBYEfre+A26VlkC3zUy/M64yPe6J/CO1hBDVkwxJ8hmkiw2QtHROIz80hDvprecVWjzwLNT+ddT+oXf5nEFREZP8IMxzDNdrRcydQjpJHViWvn4fLxhF72KcTLKM0yfokpbsGnC3X63dcHFHG0KTiTcfnBNqqdi9WyhD12Jm62bAfgJVV+GFJHXSHdTGCa1REmqfuKeSIVBCxaCPSNG1M/WbEdAfJNjGj980ZQ=</Data>
+  </Payload>
+</StrongBox>

@@ -1,7 +1,7 @@
 Strongbox
 =========
 
-Ruby gem for decrypting and reading Strongbox files.
+Ruby gem for decrypting and reading www.Strongbox.io files.
 
 Description
 -----------
@@ -31,4 +31,9 @@ strongbox object (`sb`) and call `render`.
     d  = Strongbox.decrypt(filename, password)
     sb = Strongbox.new(d)
     sb.render
+
+Command-line usage
+------------------
+
+See https://github.com/abatko/strongbox.rb
 

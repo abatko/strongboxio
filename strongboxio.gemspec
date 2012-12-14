@@ -8,15 +8,17 @@ Gem::Specification.new do |s|
   s.version     = Strongboxio::VERSION
 
   s.summary     = 'Decrypt and read www.Strongbox.io files'
-  s.description = "#{s.summary}."
+  s.description = "#{s.summary}. This is a combination gem and command-line utility."
 
   s.authors     = ['Alex Batko']
   s.email       = ['alexbatko@gmail.com']
 
   s.homepage    = 'https://github.com/abatko/strongboxio'
 
-  s.files       = ['lib/strongboxio.rb']
-  s.test_files  = Dir["test/**/*"]
+  s.files         = `git ls-files`.split($/)
+  s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
   s.license     = 'MIT'
 end

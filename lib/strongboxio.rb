@@ -4,9 +4,9 @@ require 'base64'   # for decoding
 require 'rubygems' if defined?RUBY_VERSION && RUBY_VERSION =~ /^1.8/ # for requiring gem dependency in Ruby 1.8
 require 'nokogiri' # for xml parsing
 
-class Strongboxio
+require 'strongboxio/version'
 
-  VERSION = '0.1.0'
+class Strongboxio
 
   STRONGBOX_VERSION = 3
   VERSION_LENGTH = 1

@@ -18,10 +18,6 @@ class Strongboxio
 	PAYLOAD_SCHEMA_VERSION = '2.4'
 	UNIX_EPOCH_IN_100NS_INTERVALS = 621355968000000000 # .NET time format: number of 100-nanosecond intervals since .NET epoch: January 1, 0001 at 00:00:00.000 (midnight)
 
-	def self.resembles_base64?(string)
-		string.length % 4 == 0 && string =~ /^[A-Za-z0-9+\/=]+\Z/
-	end
-
 	def self.decrypt(sbox_filename, password)
 		# open the xml file
 		f = File.open(sbox_filename)
@@ -194,6 +190,10 @@ class Strongboxio
 	end
 
 private
+
+	def self.resembles_base64?(string)
+		string.length % 4 == 0 && string =~ /^[A-Za-z0-9+\/=]+\Z/
+	end
 
 	def convert_time_from_dot_net_epoch(t)
 		Time.at((t-UNIX_EPOCH_IN_100NS_INTERVALS)*1e-7).utc.getlocal

@@ -18,6 +18,8 @@ class Strongboxio
 	PAYLOAD_SCHEMA_VERSION = '2.4'
 	UNIX_EPOCH_IN_100NS_INTERVALS = 621355968000000000 # .NET time format: number of 100-nanosecond intervals since .NET epoch: January 1, 0001 at 00:00:00.000 (midnight)
 
+	attr_accessor :sbox
+
 	def self.decrypt(sbox_filename, password)
 		# open the xml file
 		f = File.open(sbox_filename)
@@ -101,7 +103,9 @@ class Strongboxio
 		}
 	end
 
-	def assemble(decrypted_sbox, continue_despite_unexpected_payload_schema_version=false)
+	def initialize(decrypted_sbox, continue_despite_unexpected_payload_schema_version=false)
+		super()
+
 		data = Nokogiri::XML(decrypted_sbox)
 
 		payload_schema_version = data.xpath('//Payload').xpath('SchemaVersion').text
@@ -109,56 +113,54 @@ class Strongboxio
 			raise "expected schema version #{PAYLOAD_SCHEMA_VERSION}, but got #{payload_schema_version}" unless continue_despite_unexpected_payload_schema_version
 		end
 
-		sbox = {}
+		@sbox = {}
 
 		mt = data.xpath('//Payload').xpath('PayloadInfo').xpath('MT').text
-		sbox['MT'] = mt
+		@sbox['MT'] = mt
 
 		data.xpath('//PayloadData').each { |payload_data|
 
-			sbox['PayloadData'] = []
+			@sbox['PayloadData'] = []
 
 			payload_data.xpath('//SBE').each_with_index { |strongbox_entity, sbe_index|
 
-				sbox['PayloadData'][sbe_index] = {}
+				@sbox['PayloadData'][sbe_index] = {}
 
 				sbe_mt = strongbox_entity.attr('MT') # ModifiedTimestamp.Ticks
-				sbox['PayloadData'][sbe_index]['MT'] = sbe_mt if sbe_mt.length > 0
+				@sbox['PayloadData'][sbe_index]['MT'] = sbe_mt if sbe_mt.length > 0
 
 				sbe_ct = strongbox_entity.attr('CT') # CreatedTimestamp.Ticks
-				sbox['PayloadData'][sbe_index]['CT'] = sbe_ct if sbe_ct.length > 0
+				@sbox['PayloadData'][sbe_index]['CT'] = sbe_ct if sbe_ct.length > 0
 
 				sbe_ac = strongbox_entity.attr('AC') # accessCount
-				sbox['PayloadData'][sbe_index]['AC'] = sbe_ac if sbe_ac.length > 0
+				@sbox['PayloadData'][sbe_index]['AC'] = sbe_ac if sbe_ac.length > 0
 
 				sbe_name = strongbox_entity.xpath('N').text
-				sbox['PayloadData'][sbe_index]['N'] = sbe_name if sbe_name.length > 0
+				@sbox['PayloadData'][sbe_index]['N'] = sbe_name if sbe_name.length > 0
 
 				sbe_description = strongbox_entity.xpath('D').text
-				sbox['PayloadData'][sbe_index]['D'] = sbe_description if sbe_description.length > 0
+				@sbox['PayloadData'][sbe_index]['D'] = sbe_description if sbe_description.length > 0
 
 				sbe_tags = strongbox_entity.xpath('T').text
-				sbox['PayloadData'][sbe_index]['T'] = sbe_tags if sbe_tags.length > 0
+				@sbox['PayloadData'][sbe_index]['T'] = sbe_tags if sbe_tags.length > 0
 
 				child_entity = strongbox_entity.xpath('CE')
 				if child_entity.length > 0
-					sbox['PayloadData'][sbe_index]['CE'] = []
+					@sbox['PayloadData'][sbe_index]['CE'] = []
 
 					child_entity.xpath('TFE').each_with_index { |text_field_entity, ce_index|
 
-						sbox['PayloadData'][sbe_index]['CE'][ce_index] = {}
+						@sbox['PayloadData'][sbe_index]['CE'][ce_index] = {}
 
 						tfe_name = text_field_entity.xpath('N').text
-						sbox['PayloadData'][sbe_index]['CE'][ce_index]['N'] = tfe_name if tfe_name.length > 0
+						@sbox['PayloadData'][sbe_index]['CE'][ce_index]['N'] = tfe_name if tfe_name.length > 0
 
 						tfe_content = text_field_entity.xpath('C').text
-						sbox['PayloadData'][sbe_index]['CE'][ce_index]['C'] = tfe_content if tfe_content.length > 0
+						@sbox['PayloadData'][sbe_index]['CE'][ce_index]['C'] = tfe_content if tfe_content.length > 0
 					}
 				end
 			}
 		}
-
-		sbox
 	end
 
 	def render(verbose=false)
@@ -177,16 +179,6 @@ class Strongboxio
 			puts "#{convert_time_from_dot_net_epoch(payload_data['MT'].to_i)} (modify time)" if !payload_data['MT'].nil? && verbose
 			puts "#{convert_time_from_dot_net_epoch(payload_data['CT'].to_i)} (create time)" if !payload_data['CT'].nil? && verbose
 		}
-	end
-
-	#attr_accessor :decrypted_sbox
-	attr_accessor :sbox
-
-	# create an instance of Strongbox
-	def initialize(decrypted_sbox, continue_despite_unexpected_payload_schema_version=false)
-		super()
-		#self.decrypted_sbox = decrypted_sbox
-		self.sbox = assemble(decrypted_sbox, continue_despite_unexpected_payload_schema_version)
 	end
 
 private

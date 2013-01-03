@@ -80,8 +80,7 @@ class Strongboxio
 			raise "expected schema version #{PAYLOAD_SCHEMA_VERSION}, but got #{payload_schema_version}" unless continue_despite_unexpected_payload_schema_version
 		end
 
-		mt = data.xpath('//Payload').xpath('PayloadInfo').xpath('MT').text
-		puts mt
+		puts data.xpath('//Payload').xpath('PayloadInfo').xpath('MT').text
 
 		data.xpath('//PayloadData').each { |payload_data|
 			payload_data.xpath('//SBE').each { |entity|

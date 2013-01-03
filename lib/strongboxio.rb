@@ -100,6 +100,7 @@ class Strongboxio
 				}
 			}
 		}
+		0
 	end
 
 	def initialize(decrypted_sbox, continue_despite_unexpected_payload_schema_version=false)
@@ -178,6 +179,7 @@ class Strongboxio
 			puts "#{convert_time_from_dot_net_epoch(payload_data['MT'].to_i)} (modify time)" if !payload_data['MT'].nil? && verbose
 			puts "#{convert_time_from_dot_net_epoch(payload_data['CT'].to_i)} (create time)" if !payload_data['CT'].nil? && verbose
 		}
+		0
 	end
 
 private

@@ -3,6 +3,7 @@
 require 'rubygems' if defined?RUBY_VERSION && RUBY_VERSION =~ /^1.8/ # for requiring gem dependency in Ruby 1.8
 require 'highline/import' # ask
 require 'strongboxio'
+#require './lib/strongboxio.rb'
 
 def get_filename(filename=ARGV[0])
   if filename.nil?

@@ -51,7 +51,7 @@ class Strongboxio
 		d = OpenSSL::Cipher.new(CIPHER)
 		d.decrypt
 		d.key = key
-		d.iv	= iv
+		d.iv  = iv
 
 		# decrypt the portion beyond the header
 		begin
@@ -133,7 +133,7 @@ class Strongboxio
 				@sbox['PayloadData'][sbe_index]['CT'] = sbe_ct if sbe_ct.length > 0
 
 				sbe_ac = strongbox_entity.attr('AC') # accessCount
-				@sbox['PayloadData'][sbe_index]['AC'] = sbe_ac if sbe_ac.length > 0
+				@sbox['PayloadData'][sbe_index]['AC'] = sbe_ac if defined?sbe_ac && sbe_ac.length > 0
 
 				sbe_name = strongbox_entity.xpath('N').text
 				@sbox['PayloadData'][sbe_index]['N'] = sbe_name if sbe_name.length > 0
@@ -198,3 +198,4 @@ end
 #		self.length % 4 == 0 && self =~ /^[A-Za-z0-9+\/=]+\Z/
 #	end
 #end
+
